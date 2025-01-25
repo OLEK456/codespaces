@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Measurements</title>
+</head>
+<body>
+    <h1>IoT Measurements</h1>
+    <ul>
+        {% for measurement in measurements %}
+            <li>{{ measurement }}</li>
+        {% endfor %}
+    </ul>
+</body>

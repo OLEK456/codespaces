@@ -1,0 +1,29 @@
+services:
+  weather-requester:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+     - ./data:/usr/src/app/data
+    environment:
+      location: "10566"
+      broker: "broker.hivemq.com"
+      port: "1883"
+      username: "261293"
+      password: "sys.wbud"
+    ports:
+      #- "5000:5000"
+      - "1883:1883"
+    restart: always
+
+  flask-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python html_sender.py
+    volumes:
+      #- data:/data
+      - ./data:/usr/src/app/data
+    ports:
+      - "5000:5000"
+    restart: always
